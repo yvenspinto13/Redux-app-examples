@@ -1,0 +1,18 @@
+<!-- Use the async pipe to get the latest broadcasted value of on observable as an input in the component -->
+<!-- <app-template-modal [modalState]="this.openedModalName$ | async" (oncloseModal)="handleCloseModal('templateFormModal')"></app-template-modal>
+<button class="btn btn-outline-primary" (click)="handleOpenModal('templateFormModal')">Open modal with template</button> -->
+<!-- Don't forget to add this: -->
+<!-- <ng-template ngbModalContainer></ng-template> -->
+<div id="fade" class="fade-in">
+</div>
+<app-left-sidebar></app-left-sidebar>
+<app-right-sidebar></app-right-sidebar>
+<div id="main-content">
+
+    <!-- <app-alerts-list [alerts]="alerts$ | async" (closeAlert)="onCloseAlert($event)"></app-alerts-list> -->
+
+    <button class="btn btn-primary" appSidebarToggle="left">Toggle Left Sidebar</button>
+    <button class="btn btn-primary" appSidebarToggle="right">Toggle Right Sidebar</button>
+</div>
+<app-todo-list></app-todo-list>
+<app-todo-overview></app-todo-overview>
