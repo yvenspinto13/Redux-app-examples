@@ -5,7 +5,7 @@ import { NgRedux, NgReduxModule } from '@angular-redux/store';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { IAppState, rootReducer, INITIAL_STATE } from './store';
+import { IAppState, rootReducer, INITIAL_STATE } from './common/to-do/store';
 
 import { StoreModule } from '@ngrx/store';
 import { metaReducer } from './common/index';
@@ -18,7 +18,12 @@ import { RightSidebarComponent } from './right-sidebar/right-sidebar.component';
 import { AlertsListComponent } from './alerts-list/alerts-list.component';
 import { TodoOverviewComponent } from './todo-overview/todo-overview.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-
+import { GamesListComponent } from './games-list/games-list.component';
+import { GameService } from './common/game/game.service';
+import { EffectsModule } from '@ngrx/effects';
+import { GameEffects } from './common/game/game.effects';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule, JsonpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -31,20 +36,25 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     RightSidebarComponent,
     AlertsListComponent,
     TodoOverviewComponent,
-    TodoListComponent
+    TodoListComponent,
+    GamesListComponent
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
     StoreModule.forRoot({ reducer: metaReducer }),
     NgReduxModule,
-    FormsModule
+    FormsModule,
+    EffectsModule.forRoot([GameEffects]),
+    HttpModule,
+    HttpClientModule,
+    JsonpModule
   ],
-  providers: [],
+  providers: [GameService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor (ngRedux: NgRedux<IAppState>) {
+  constructor(ngRedux: NgRedux<IAppState>, ) {
     ngRedux.configureStore(rootReducer, INITIAL_STATE);
   }
- }
+}

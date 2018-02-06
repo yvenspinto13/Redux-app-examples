@@ -1,8 +1,8 @@
 <!-- Use the async pipe to get the latest broadcasted value of on observable as an input in the component -->
-<!-- <app-template-modal [modalState]="this.openedModalName$ | async" (oncloseModal)="handleCloseModal('templateFormModal')"></app-template-modal>
-<button class="btn btn-outline-primary" (click)="handleOpenModal('templateFormModal')">Open modal with template</button> -->
+<app-template-modal [modalState]="this.openedModalName$ | async" (oncloseModal)="handleCloseModal('templateFormModal')"></app-template-modal>
+<button class="btn btn-outline-primary" (click)="handleOpenModal('templateFormModal')">Open modal with template</button>
 <!-- Don't forget to add this: -->
-<!-- <ng-template ngbModalContainer></ng-template> -->
+<ng-template ngbModalContainer></ng-template>
 <div id="fade" class="fade-in">
 </div>
 <app-left-sidebar></app-left-sidebar>
@@ -16,3 +16,10 @@
 </div>
 <app-todo-list></app-todo-list>
 <app-todo-overview></app-todo-overview>
+<div class="row">
+    <div class="col-md-12">
+        <h1>Pagination</h1>
+        <app-games-list [games]="games$ | async" [count]="gamesCount$ | async" [page]="gamesPage$ | async" [loading]="gamesLoading$ | async"
+            (onpageChanged)="onGamesPageChanged($event)"></app-games-list>
+    </div>
+</div>

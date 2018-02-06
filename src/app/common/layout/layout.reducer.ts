@@ -2,14 +2,14 @@ import * as layout from './layout.actions';
 
 export interface State {
     /* The description of the different parts of the layout go here */
-    alerts: Array<Object>;
+    openedModalName: string;
     leftSidebarOpened: boolean;
     rightSidebarOpened: boolean;
 }
 
 const initialState: State = {
     /* The initial values of the layout state will be initialized here */
-    alerts: [],
+    openedModalName: null,
     leftSidebarOpened: true,
     rightSidebarOpened: false
 };
@@ -39,3 +39,4 @@ export function reducer(state = initialState, action: layout.LayoutActions): Sta
 
 export const getLeftSidenavState = (state: State) => state.leftSidebarOpened;
 export const getRightSidenavState = (state: State) => state.rightSidebarOpened;
+export const getOpenedModalName = (state: State) => state.openedModalName;

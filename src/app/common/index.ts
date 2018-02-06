@@ -6,23 +6,34 @@ import { storeLogger } from 'ngrx-store-logger';
 import * as fromLayout from './layout/layout.reducer';
 import { compose } from '@ngrx/core';
 import { combineReducers } from '@ngrx/store';
+import * as fromGames from './game/game.reducer';
 
 export interface AppState {
-    reducer: {
-        layout: fromLayout.State;
-    };
+    layout: fromLayout.State;
+    games: fromGames.GameState;
 }
 
-export const layout_reducers = { layout: fromLayout.reducer };
+export const reducers = {
+    layout: fromLayout.reducer,
+    games: fromGames.gameRootReducer
+};
 
-const layoutDevelopmentReducer: Function = compose(storeLogger(), combineReducers)(layout_reducers);
+const developmentReducer: Function = compose(storeLogger(), combineReducers)(reducers);
 
 export function metaReducer(state: any, action: any) {
-    return layoutDevelopmentReducer(state, action);
+    return developmentReducer(state, action);
 }
 
 /** * Layout selectors */
-export const getLayoutState = (state: AppState) => state.reducer.layout;
-
+export const getLayoutState = (state: AppState) => state.layout;
+export const getLayoutOpenedModalName = createSelector(getLayoutState, fromLayout.getOpenedModalName);
 export const getLayoutLeftSidenavState = createSelector(getLayoutState, fromLayout.getLeftSidenavState);
 export const getLayoutRightSidenavState = createSelector(getLayoutState, fromLayout.getRightSidenavState);
+
+/* * Game Selectors* */
+
+export const getGamesState = (state: AppState) => state.games;
+export const getGamesEntities = createSelector(getGamesState, fromGames.getEntities);
+export const getGamesCount = createSelector(getGamesState, fromGames.getCount);
+export const getGamesPage = createSelector(getGamesState, fromGames.getPage);
+export const getGamesLoadingState = createSelector(getGamesState, fromGames.getLoadingState);
