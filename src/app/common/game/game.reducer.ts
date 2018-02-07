@@ -17,7 +17,7 @@ export const INITIAL_GAME_STATE: GameState = {
     page: 1
 };
 
-export function gameRootReducer(state: GameState, action): GameState {
+export function gameRootReducer(state: GameState = INITIAL_GAME_STATE, action): GameState {
 
     switch (action.type) {
         case GameActionTypes.LOAD:
@@ -50,6 +50,6 @@ export function gameRootReducer(state: GameState, action): GameState {
 // create selectors
 
 export const getEntities = (state: GameState) => state.entities;
-export const getPage = (state: GameState) => state.page;
+export const getPage = (state: GameState) => 5;
 export const getCount = (state: GameState) => state.count;
 export const getLoadingState = (state: GameState) => state.loading;

@@ -6,7 +6,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let game of games | async">
+      <tr *ngFor="let game of (games | async)">
         <td>{{game?.name}}</td>
       </tr>
     </tbody>

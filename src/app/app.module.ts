@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { IAppState, rootReducer, INITIAL_STATE } from './common/to-do/store';
 
 import { StoreModule } from '@ngrx/store';
-import { metaReducer } from './common/index';
+import { metaReducer, reducers } from './common/index';
 import { TemplateModalComponent } from './template-modal/template-modal.component';
 import { FinancialComponent } from './financial/financial.component';
 import { SidebarWatchDirective } from './sidebar-watch.directive';
@@ -42,7 +42,7 @@ import { HttpModule, JsonpModule} from '@angular/http';
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
-    StoreModule.forRoot({ reducer: metaReducer }),
+    StoreModule.forRoot(reducers),
     NgReduxModule,
     FormsModule,
     EffectsModule.forRoot([GameEffects]),

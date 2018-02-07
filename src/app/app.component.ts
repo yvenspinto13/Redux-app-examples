@@ -4,9 +4,8 @@ import { Observable } from 'rxjs/Observable';
 /** * Import the root state in order to select parts of it. */
 import * as fromRoot from './common/index';
 /* * Import the layout actions to make dispatching from the component possible. */
-// import * as layout from './common/layout/layout.actions';
+import * as layout from './common/layout/layout.actions';
 import * as games from './common/game/actions';
-import { LoadGamesAction } from './common/game/actions';
 
 @Component({
   selector: 'app-root',
@@ -28,18 +27,18 @@ export class AppComponent implements OnInit {
     this.gamesCount$ = store.select(fromRoot.getGamesCount);
     this.gamesPage$ = store.select(fromRoot.getGamesPage);
     this.gamesLoading$ = store.select(fromRoot.getGamesLoadingState);
-   }
+  }
 
-   ngOnInit() {
+  ngOnInit() {
     this.store.dispatch(new games.LoadGamesAction(1));
-   }
+  }
 
   handleOpenModal(modalName: string) {
-    // this.store.dispatch(new layout.OpenModalAction(modalName));
+    //  this.store.dispatch(new layout.OpenModalAction(modalName));
   }
 
   handleCloseModal(modalName: string) {
-    // this.store.dispatch(new layout.CloseModalAction(modalName));
+    //  this.store.dispatch(new layout.CloseModalAction(modalName));
   }
 
   onGamesPageChanged(page: number) {
