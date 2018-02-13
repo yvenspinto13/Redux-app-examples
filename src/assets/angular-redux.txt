@@ -7,6 +7,8 @@ https://medium.com/@rintoj/angular-2-implementing-flux-architecture-a7f7e61039f2
 https://medium.com/@gerard.sans/angular-using-flux-6a835c9c0656
 
 https://medium.com/front-end-hacking/managing-state-in-angular-apps-with-ngrx-store-and-ngrx-effects-part-1-a878addba622
+https://medium.com/front-end-hacking/managing-state-in-angular-apps-with-ngrx-store-and-ngrx-effects-part-2-52cd640adad2
+https://medium.com/front-end-hacking/managing-state-in-angular-apps-with-ngrx-store-and-ngrx-effects-part-3-99fe2e0a7082
 
 https://www.pluralsight.com/guides/front-end-javascript/ui-state-management-with-redux-in-angular-4
 
